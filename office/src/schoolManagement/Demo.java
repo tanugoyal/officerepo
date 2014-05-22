@@ -28,7 +28,7 @@ public class Demo
 	public Demo() throws FileNotFoundException, IOException 
 	{
 		frame = new JFrame("Demo application");
-		auth = new FileBasedAuthenticator("src/data/detail.txt");
+		auth = new FileBasedAuthenticator("src/data/userdb");
 	}
 	
 	public void run()
