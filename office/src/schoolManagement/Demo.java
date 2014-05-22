@@ -1,4 +1,5 @@
 package schoolManagement;
+
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,6 +16,9 @@ import javax.swing.JTextField;
 import schoolManagement.auth.Authenticator;
 import schoolManagement.auth.Authenticator.AuthenticationException;
 import schoolManagement.auth.FileBasedAuthenticator;
+import schoolManagement.auth.Role;
+import schoolManagement.ui.AdminMenu;
+import schoolManagement.ui.StudentView;
 
 public class Demo 
 {
@@ -24,7 +28,7 @@ public class Demo
 	public Demo() throws FileNotFoundException, IOException 
 	{
 		frame = new JFrame("Demo application");
-		auth = new FileBasedAuthenticator("src\\data\\userdb");
+		auth = new FileBasedAuthenticator("src/data/detail.txt");
 	}
 	
 	public void run()
@@ -78,9 +82,14 @@ public class Demo
 				
 				try {
 					User user = auth.authenticate(uservalue, passvalue);
-					//if (user.getRole() == Role.ADMIN
-					//AdminUI ad = new AdminUI();
-					//ad.setVisible(true);
+					if (user.getRole() == Role.ADMIN) {
+						AdminMenu ad = new AdminMenu();
+						ad.setVisible(true);
+					}
+					else if (user.getRole() == Role.STUDENT){
+						StudentView sv = new StudentView();
+						sv.setVisible(true);
+					}
 				} 
 				catch (AuthenticationException ex) {
 					msgText.setText(ex.getMessage());
