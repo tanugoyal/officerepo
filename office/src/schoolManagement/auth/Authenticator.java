@@ -1,6 +1,6 @@
 package schoolManagement.auth;
 
-import schoolManagement.User;
+import schoolManagement.model.User;
 
 public interface Authenticator 
 {

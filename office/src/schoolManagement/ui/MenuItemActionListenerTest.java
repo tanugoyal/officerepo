@@ -65,6 +65,11 @@ public class MenuItemActionListenerTest {
 	}
 
 	private class MyMenuItem extends JMenuItem implements ActionListener {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = -7976619691452047601L;
+
 		public MyMenuItem(String text) {
 			super(text);
 			addActionListener(this);

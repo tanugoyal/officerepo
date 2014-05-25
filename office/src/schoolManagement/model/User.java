@@ -1,4 +1,4 @@
-package schoolManagement;
+package schoolManagement.model;
 
 import schoolManagement.auth.Role;
 

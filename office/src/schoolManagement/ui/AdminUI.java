@@ -1,8 +1,5 @@
 package schoolManagement.ui;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-
 import javax.swing.JFrame;
 
 public class AdminUI {

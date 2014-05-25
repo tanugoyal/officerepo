@@ -17,6 +17,9 @@ import schoolManagement.auth.Authenticator;
 import schoolManagement.auth.Authenticator.AuthenticationException;
 import schoolManagement.auth.FileBasedAuthenticator;
 import schoolManagement.auth.Role;
+import schoolManagement.model.User;
+import schoolManagement.store.FileBasedStudentRegistry;
+import schoolManagement.store.StudentRegistry;
 import schoolManagement.ui.AdminMenu;
 import schoolManagement.ui.StudentView;
 
@@ -24,11 +27,14 @@ public class Demo
 {
 	private final JFrame frame;
 	private final Authenticator auth;
+	private final StudentRegistry studentRegistry;
 	
-	public Demo() throws FileNotFoundException, IOException 
+	public Demo() throws FileNotFoundException, IOException, ClassNotFoundException 
 	{
 		frame = new JFrame("Demo application");
 		auth = new FileBasedAuthenticator("src/data/userdb");
+		studentRegistry = new FileBasedStudentRegistry("src/data/studentdb");
+		studentRegistry.load();
 	}
 	
 	public void run()
@@ -108,7 +114,7 @@ public class Demo
 		});
 	}
 
-	public static void main(final String[] args) throws FileNotFoundException, IOException 
+	public static void main(final String[] args) throws FileNotFoundException, IOException, ClassNotFoundException 
 	{
 		Demo d = new Demo();
 		d.run();

@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import schoolManagement.User;
+import schoolManagement.model.User;
 
 public class FileBasedAuthenticator implements Authenticator
 {
